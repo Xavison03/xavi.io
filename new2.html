@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Move Image</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      overflow: hidden;
+    }
+
+    img {
+      position: absolute;
+      width: 150px;
+      transition: transform 0.05s linear;
+      pointer-events: none; /* So it doesn't block mouse events */
+    }
+  </style>
+</head>
+<body>
+  <img src="./spid.png" id="floatingImg" />
+
+  <script>
+    const img = document.getElementById("floatingImg");
+
+    document.addEventListener("mousemove", (e) => {
+      img.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
+</body>
+</html>
